@@ -1,0 +1,3414 @@
+**************************************                                          
+* UPGRADE to release 24.0                                                       
+**************************************                                          
+
+PL/SQL procedure successfully completed.
+
+
+Session altered.
+
+'***** Prefix scripts start *****'
+--- CREATING SP_COLUMN_EXISTS ---                                               
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_TABLE_EXISTS ---                                                
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_TRIGGER_EXISTS ---                                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING CREATE_PROPERTY_TABLE ---                                          
+
+PL/SQL procedure successfully completed.
+
+old  93: TABLESPACE &dbIndexTableSpace.
+new  93: TABLESPACE ucm_xtraining_24_101_INDEX
+old  95: TABLESPACE &dbDataTableSpace.';
+new  95: TABLESPACE ucm_xtraining_24_101_DATA';
+
+Procedure created.
+
+--- CREATING SP_INDEX_EXISTS ---                                                
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_PRIMARYKEY_EXISTS ---                                           
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_IS_NULLABLE ---                                                 
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_PK_CONSTRAINT_EXISTS ---                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+--- CREATING SP_INDEX_COLUMNS ---                                               
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+'***** Prefix scripts end *****'
+'***** Body scripts start *****'
+Step Drop Index: DTX[EventLogEntry] Index[IDX_CTL_EVENT_LOG01] starting...      
+
+PL/SQL procedure successfully completed.
+
+Index IDX_CTL_EVENT_LOG01 is missing                                            
+
+PL/SQL procedure successfully completed.
+
+Step Drop Index: DTX[EventLogEntry] Index[IDX_CTL_EVENT_LOG01] end.             
+
+PL/SQL procedure successfully completed.
+
+Step Drop Index: DTX[EventLogEntry] Index[IDX_CTL_EVENT_LOG_CREATE_DATE]        
+starting...                                                                     
+
+PL/SQL procedure successfully completed.
+
+Index IDX_CTL_EVENT_LOG_CREATE_DATE is missing                                  
+
+PL/SQL procedure successfully completed.
+
+Step Drop Index: DTX[EventLogEntry] Index[IDX_CTL_EVENT_LOG_CREATE_DATE] end.   
+
+PL/SQL procedure successfully completed.
+
+Step Drop Primary Key: DTX[Party] starting...                                   
+
+PL/SQL procedure successfully completed.
+
+PK crm_party dropped                                                            
+
+PL/SQL procedure successfully completed.
+
+PK crm_party_P dropped                                                          
+
+PL/SQL procedure successfully completed.
+
+Step Drop Primary Key: DTX[Party] end.                                          
+
+PL/SQL procedure successfully completed.
+
+Step Add Primary Key: DTX[Party] starting...                                    
+
+PL/SQL procedure successfully completed.
+
+old   6:     EXECUTE IMMEDIATE 'ALTER TABLE crm_party ADD CONSTRAINT pk_crm_party PRIMARY KEY (organization_id, party_id) USING INDEX REVERSE TABLESPACE &dbIndexTableSpace.';
+new   6:     EXECUTE IMMEDIATE 'ALTER TABLE crm_party ADD CONSTRAINT pk_crm_party PRIMARY KEY (organization_id, party_id) USING INDEX REVERSE TABLESPACE ucm_xtraining_24_101_INDEX';
+PK pk_crm_party created                                                         
+
+PL/SQL procedure successfully completed.
+
+old   6:     EXECUTE IMMEDIATE 'ALTER TABLE crm_party_P ADD CONSTRAINT pk_crm_party_P PRIMARY KEY (organization_id, party_id, property_code) USING INDEX REVERSE TABLESPACE &dbIndexTableSpace.';
+new   6:     EXECUTE IMMEDIATE 'ALTER TABLE crm_party_P ADD CONSTRAINT pk_crm_party_P PRIMARY KEY (organization_id, party_id, property_code) USING INDEX REVERSE TABLESPACE ucm_xtraining_24_101_INDEX';
+PK pk_crm_party_P created                                                       
+
+PL/SQL procedure successfully completed.
+
+Step Add Primary Key: DTX[Party] end.                                           
+
+PL/SQL procedure successfully completed.
+
+Step remove inv_count_sheet_lineitm.idx_inv_count_sheet_lineitm01 starting...   
+
+PL/SQL procedure successfully completed.
+
+PK inv_count_sheet_lineitm dropped                                              
+
+PL/SQL procedure successfully completed.
+
+Index idx_inv_count_sheet_lineitm01 is missing                                  
+
+PL/SQL procedure successfully completed.
+
+old   6:     EXECUTE IMMEDIATE 'ALTER TABLE inv_count_sheet_lineitm ADD CONSTRAINT pk_inv_count_sheet_lineitm PRIMARY KEY (organization_id, rtl_loc_id, inv_count_id, count_sheet_nbr, lineitm_nbr) USING INDEX TABLESPACE &dbIndexTableSpace.';
+new   6:     EXECUTE IMMEDIATE 'ALTER TABLE inv_count_sheet_lineitm ADD CONSTRAINT pk_inv_count_sheet_lineitm PRIMARY KEY (organization_id, rtl_loc_id, inv_count_id, count_sheet_nbr, lineitm_nbr) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX';
+PK pk_inv_count_sheet_lineitm created                                           
+
+PL/SQL procedure successfully completed.
+
+Step remove inv_count_sheet_lineitm.idx_inv_count_sheet_lineitm01 end.          
+
+PL/SQL procedure successfully completed.
+
+Step change inv_count_sheet_lineitm.description from size 200 to 254 starting...
+
+PL/SQL procedure successfully completed.
+
+Column inv_count_sheet_lineitm.description modify                               
+
+PL/SQL procedure successfully completed.
+
+Column inv_count_sheet_lineitm.description already nullable                     
+
+PL/SQL procedure successfully completed.
+
+Step change inv_count_sheet_lineitm.description from size 200 to 254 end.       
+
+PL/SQL procedure successfully completed.
+
+Step change prc_deal.description from size 128 to 254 starting...               
+
+PL/SQL procedure successfully completed.
+
+Column prc_deal.description modify                                              
+
+PL/SQL procedure successfully completed.
+
+Column prc_deal.description already nullable                                    
+
+PL/SQL procedure successfully completed.
+
+Step change prc_deal.description from size 128 to 254 end.                      
+
+PL/SQL procedure successfully completed.
+
+Step Update sp_flash starting...                                                
+
+PL/SQL procedure successfully completed.
+
+--- CREATING PROCEDURE SP_FLASH                                                 
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+Step Update sp_flash end.                                                       
+
+PL/SQL procedure successfully completed.
+
+Step change datalength from size 30 to 50 starting...                           
+
+PL/SQL procedure successfully completed.
+
+Column tax_tax_exemption.cert_nbr modify                                        
+
+PL/SQL procedure successfully completed.
+
+Column tax_tax_exemption.cert_nbr already nullable                              
+
+PL/SQL procedure successfully completed.
+
+Step change datalength from size 30 to 50 end.                                  
+
+PL/SQL procedure successfully completed.
+
+Step Drop the old procedure definition for the sp_table_stats_row_count and     
+sp_table_row_count starting...                                                  
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+Step Drop the old procedure definition for the sp_table_stats_row_count and     
+sp_table_row_count end.                                                         
+
+PL/SQL procedure successfully completed.
+
+Step Create SP_GATHER_TABLE_STATS starting...                                   
+
+PL/SQL procedure successfully completed.
+
+--- CREATING PROCEDURE SP_GATHER_TABLE_STATS                                    
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+Step Create SP_GATHER_TABLE_STATS end.                                          
+
+PL/SQL procedure successfully completed.
+
+Step Create sp_table_row_count starting...                                      
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION fn_table_row_count                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step Create sp_table_row_count end.                                             
+
+PL/SQL procedure successfully completed.
+
+Step Create sp_table_stats_row_count starting...                                
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION fn_table_stats_row_count                                  
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step Create sp_table_stats_row_count end.                                       
+
+PL/SQL procedure successfully completed.
+
+Step update sp_export_database starting...                                      
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION SP_EXPORT_DATABASE                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step update sp_export_database end.                                             
+
+PL/SQL procedure successfully completed.
+
+Step update com_sequence starting...                                            
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION sp_next_sequence_value                                    
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step update com_sequence end.                                                   
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[ItRTServerConfig] starting...                               
+
+PL/SQL procedure successfully completed.
+
+old  24: CONSTRAINT pk_cita_rt_server PRIMARY KEY (organization_id, rtl_loc_id, rts_seq) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  24: CONSTRAINT pk_cita_rt_server PRIMARY KEY (organization_id, rtl_loc_id, rts_seq) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  26: TABLESPACE &dbDataTableSpace.
+new  26: TABLESPACE ucm_xtraining_24_101_DATA
+Table cita_rt_server already exists                                             
+
+PL/SQL procedure successfully completed.
+
+Table CITA_RT_SERVER_P already exists                                           
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[ItRTServerConfig] end.                                      
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[ItRTServerRegister] starting...                             
+
+PL/SQL procedure successfully completed.
+
+old  16: CONSTRAINT pk_cita_rt_server_register PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  16: CONSTRAINT pk_cita_rt_server_register PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  18: TABLESPACE &dbDataTableSpace.
+new  18: TABLESPACE ucm_xtraining_24_101_DATA
+Table cita_rt_server_register already exists                                    
+
+PL/SQL procedure successfully completed.
+
+Table CITA_RT_SERVER_REGISTER_P already exists                                  
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[ItRTServerRegister] end.                                    
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[PafNfeQueueTender] Fields{[Field=description]} starting... 
+
+PL/SQL procedure successfully completed.
+
+Column cpaf_nfe_queue_tender.description already exists                         
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[PafNfeQueueTender] Fields{[Field=description]} end.        
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[PafNfeTender] Fields{[Field=description]} starting...      
+
+PL/SQL procedure successfully completed.
+
+Column cpaf_nfe_tender.description already exists                               
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[PafNfeTender] Fields{[Field=description]} end.             
+
+PL/SQL procedure successfully completed.
+
+Step Drop Table: DTX[com_sequence_part] starting...                             
+
+PL/SQL procedure successfully completed.
+
+Table com_sequence_part is missing                                              
+
+PL/SQL procedure successfully completed.
+
+Step Drop Table: DTX[com_sequence_part] end.                                    
+
+PL/SQL procedure successfully completed.
+
+Step Drop Table: DTX[com_sequence_part_p] starting...                           
+
+PL/SQL procedure successfully completed.
+
+Table com_sequence_part_p is missing                                            
+
+PL/SQL procedure successfully completed.
+
+Step Drop Table: DTX[com_sequence_part_p] end.                                  
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceConfig] starting...                                 
+
+PL/SQL procedure successfully completed.
+
+old  20: CONSTRAINT pk_com_sequence_config PRIMARY KEY (organization_id, sequence_name, config_element) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  20: CONSTRAINT pk_com_sequence_config PRIMARY KEY (organization_id, sequence_name, config_element) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  22: TABLESPACE &dbDataTableSpace.
+new  22: TABLESPACE ucm_xtraining_24_101_DATA
+Table com_sequence_config already exists                                        
+
+PL/SQL procedure successfully completed.
+
+Table COM_SEQUENCE_CONFIG_P already exists                                      
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceConfig] end.                                        
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceConfigPart] starting...                             
+
+PL/SQL procedure successfully completed.
+
+old  25: CONSTRAINT pk_com_sequence_config_part PRIMARY KEY (organization_id, sequence_name, config_element, sequence_part_num) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  25: CONSTRAINT pk_com_sequence_config_part PRIMARY KEY (organization_id, sequence_name, config_element, sequence_part_num) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  27: TABLESPACE &dbDataTableSpace.
+new  27: TABLESPACE ucm_xtraining_24_101_DATA
+Table com_sequence_config_part already exists                                   
+
+PL/SQL procedure successfully completed.
+
+Table COM_SEQUENCE_CONFIG_PART_P already exists                                 
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceConfigPart] end.                                    
+
+PL/SQL procedure successfully completed.
+
+Step Convert system returns to their absolute value in crpt_daily_detail table  
+starting...                                                                     
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+Step Convert system returns to their absolute value in crpt_daily_detail table  
+end.                                                                            
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[ReasonCode] Fields{[Field=invoiceRequired]} starting...    
+
+PL/SQL procedure successfully completed.
+
+Column com_reason_code.invoice_required already exists                          
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[ReasonCode] Fields{[Field=invoiceRequired]} end.           
+
+PL/SQL procedure successfully completed.
+
+Step Integers extended from 11 to 12 for sp_fifo_detail.sql starting...         
+
+PL/SQL procedure successfully completed.
+
+--- CREATING PROCEDURE sp_fifo_detail                                           
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+Step Integers extended from 11 to 12 for sp_fifo_detail.sql end.                
+
+PL/SQL procedure successfully completed.
+
+Step Integers extended from 11 to 12 for sp_fifo_summary.sql starting...        
+
+PL/SQL procedure successfully completed.
+
+--- CREATING procedure SP_FIFO_SUMMARY                                          
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+Step Integers extended from 11 to 12 for sp_fifo_summary.sql end.               
+
+PL/SQL procedure successfully completed.
+
+Step Integers extended from 11 to 12 for sp_ins_upd_flash_sales.sql starting... 
+
+PL/SQL procedure successfully completed.
+
+--- CREATING PROCEDURE sp_ins_upd_flash_sales                                   
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+Step Integers extended from 11 to 12 for sp_ins_upd_flash_sales.sql end.        
+
+PL/SQL procedure successfully completed.
+
+Step Integers extended from 11 to 12 for tables starting...                     
+
+PL/SQL procedure successfully completed.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+Step Integers extended from 11 to 12 for tables end.                            
+
+PL/SQL procedure successfully completed.
+
+Step Alter Column: DTX[ShippingCost] Fields{[Field=cost]} starting...           
+
+PL/SQL procedure successfully completed.
+
+Column com_shipping_cost.cost modify                                            
+
+PL/SQL procedure successfully completed.
+
+Column com_shipping_cost.cost already not nullable                              
+
+PL/SQL procedure successfully completed.
+
+Column com_shipping_cost_P.cost modify                                          
+
+PL/SQL procedure successfully completed.
+
+Column com_shipping_cost_P.cost already not nullable                            
+
+PL/SQL procedure successfully completed.
+
+Step Alter Column: DTX[ShippingCost] Fields{[Field=cost]} end.                  
+
+PL/SQL procedure successfully completed.
+
+Step Temporaly remove index IDX_RPT_SALE_LINE03 to alter column SaleLine.netAmt 
+starting...                                                                     
+
+PL/SQL procedure successfully completed.
+
+PK rpt_sale_line dropped                                                        
+
+PL/SQL procedure successfully completed.
+
+Index IDX_RPT_SALE_LINE03 dropped                                               
+
+PL/SQL procedure successfully completed.
+
+old   6:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE &dbIndexTableSpace.';
+new   6:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX';
+PK pk_rpt_sale_line created                                                     
+
+PL/SQL procedure successfully completed.
+
+Step Temporaly remove index IDX_RPT_SALE_LINE03 to alter column SaleLine.netAmt 
+end.                                                                            
+
+PL/SQL procedure successfully completed.
+
+Step Alter Column: DTX[SaleLine] Fields{[Field=netAmt]} starting...             
+
+PL/SQL procedure successfully completed.
+
+Column rpt_sale_line.net_amt modify                                             
+
+PL/SQL procedure successfully completed.
+
+Column rpt_sale_line.net_amt already nullable                                   
+
+PL/SQL procedure successfully completed.
+
+Step Alter Column: DTX[SaleLine] Fields{[Field=netAmt]} end.                    
+
+PL/SQL procedure successfully completed.
+
+Step Add the index IDX_RPT_SALE_LINE03 again starting...                        
+
+PL/SQL procedure successfully completed.
+
+old  26:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE &dbIndexTableSpace.';
+new  26:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX';
+old  31:         TABLESPACE &dbIndexTableSpace.';
+new  31:         TABLESPACE ucm_xtraining_24_101_INDEX';
+old  41:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE &dbIndexTableSpace.';
+new  41:     EXECUTE IMMEDIATE 'ALTER TABLE rpt_sale_line ADD CONSTRAINT pk_rpt_sale_line PRIMARY KEY (organization_id, rtl_loc_id, business_date, wkstn_id, trans_seq, rtrans_lineitm_seq) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX';
+old  46:         TABLESPACE &dbIndexTableSpace.';
+new  46:         TABLESPACE ucm_xtraining_24_101_INDEX';
+PK rpt_sale_line already exists                                                 
+Index IDX_RPT_SALE_LINE03 created                                               
+
+PL/SQL procedure successfully completed.
+
+Step Add the index IDX_RPT_SALE_LINE03 again end.                               
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceRange] starting...                                  
+
+PL/SQL procedure successfully completed.
+
+old  20: CONSTRAINT pk_com_sequence_range PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id, sequence_id, sequence_mode, effective_date, sequence_start) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  20: CONSTRAINT pk_com_sequence_range PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id, sequence_id, sequence_mode, effective_date, sequence_start) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  22: TABLESPACE &dbDataTableSpace.
+new  22: TABLESPACE ucm_xtraining_24_101_DATA
+Table com_sequence_range already exists                                         
+
+PL/SQL procedure successfully completed.
+
+Table COM_SEQUENCE_RANGE_P already exists                                       
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceRange] end.                                         
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceRangeStatus] starting...                            
+
+PL/SQL procedure successfully completed.
+
+old  19: CONSTRAINT pk_com_sequence_range_status PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id, sequence_id, sequence_mode, effective_date, sequence_start) USING INDEX TABLESPACE &dbIndexTableSpace.
+new  19: CONSTRAINT pk_com_sequence_range_status PRIMARY KEY (organization_id, rtl_loc_id, wkstn_id, sequence_id, sequence_mode, effective_date, sequence_start) USING INDEX TABLESPACE ucm_xtraining_24_101_INDEX
+old  21: TABLESPACE &dbDataTableSpace.
+new  21: TABLESPACE ucm_xtraining_24_101_DATA
+Table com_sequence_range_status already exists                                  
+
+PL/SQL procedure successfully completed.
+
+Step Add Table: DTX[SequenceRangeStatus] end.                                   
+
+PL/SQL procedure successfully completed.
+
+Step Drop Column: DTX[SequenceConfigPart]                                       
+Columns{[Column=range_availabiliy_threshold_alert]} starting...                 
+
+PL/SQL procedure successfully completed.
+
+Column com_sequence_config_part.range_availabiliy_threshold_alert is missing    
+
+PL/SQL procedure successfully completed.
+
+Step Drop Column: DTX[SequenceConfigPart]                                       
+Columns{[Column=range_availabiliy_threshold_alert]} end.                        
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[SequenceConfigPart]                                        
+Fields{[Field=rangeAvailabilityThresholdAlert]} starting...                     
+
+PL/SQL procedure successfully completed.
+
+Column com_sequence_config_part.range_availability_threshold_alert already      
+exists                                                                          
+
+PL/SQL procedure successfully completed.
+
+Step Add Column: DTX[SequenceConfigPart]                                        
+Fields{[Field=rangeAvailabilityThresholdAlert]} end.                            
+
+PL/SQL procedure successfully completed.
+
+Step Create sp_next_sequence_range_value.sql starting...                        
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION sp_next_sequence_range_value                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step Create sp_next_sequence_range_value.sql end.                               
+
+PL/SQL procedure successfully completed.
+
+Step Create sp_get_sequence_value.sql starting...                               
+
+PL/SQL procedure successfully completed.
+
+--- CREATING FUNCTION sp_get_sequence_value                                     
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+Step Create sp_get_sequence_value.sql end.                                      
+
+PL/SQL procedure successfully completed.
+
+Step change exchange rate precision from 6 to 10 starting...                    
+
+PL/SQL procedure successfully completed.
+
+Column conversion tnd_exchange_rate.rate_temp starting...                       
+
+PL/SQL procedure successfully completed.
+
+Column tnd_exchange_rate.rate_temp created                                      
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+Column conversion tnd_exchange_rate rate_temp end.                              
+
+PL/SQL procedure successfully completed.
+
+Column conversion tsn_xrtrans_lineitm old_rate_temp starting...                 
+
+PL/SQL procedure successfully completed.
+
+Column tsn_xrtrans_lineitm.old_rate_temp created                                
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+Column conversion tsn_xrtrans_lineitm old_rate end.                             
+
+PL/SQL procedure successfully completed.
+
+Column conversion tsn_xrtrans_lineitm new_rate_temp starting...                 
+
+PL/SQL procedure successfully completed.
+
+Column tsn_xrtrans_lineitm.new_rate_temp created                                
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+Column conversion tsn_xrtrans_lineitm new_rate_temp end.                        
+
+PL/SQL procedure successfully completed.
+
+Column conversion ttr_tndr_lineitm exchange_rate starting...                    
+
+PL/SQL procedure successfully completed.
+
+Column ttr_tndr_lineitm.rate_temp created                                       
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+
+PL/SQL procedure successfully completed.
+
+Column conversion ttr_tndr_lineitm exchange_rate end.                           
+
+PL/SQL procedure successfully completed.
+
+Step change exchange rate precision from 6 to 10 end.                           
+
+PL/SQL procedure successfully completed.
+
+Step Remove un-encrypted SSN values starting...                                 
+
+PL/SQL procedure successfully completed.
+
+
+0 rows updated.
+
+
+0 rows updated.
+
+Step Remove un-encrypted SSN values end.                                        
+
+PL/SQL procedure successfully completed.
+
+'***** Body scripts end *****'
+'**************************************'
+'Finalizing UPGRADE release 24.0'
+'**************************************'
+Step Remove un-encrypted SSN values end.                                        
+
+PL/SQL procedure successfully completed.
+
+--- CREATING RPT_TRL_SALE_LINEITM_VIEW                                          
+
+PL/SQL procedure successfully completed.
+
+
+View created.
+
+
+View created.
+
+
+Grant succeeded.
+
+--- CREATING Test_Connection                                                    
+
+PL/SQL procedure successfully completed.
+
+
+View created.
+
+
+Grant succeeded.
+
+--- CREATING RPT_TRL_STOCK_MOVEMENT_VIEW                                        
+
+PL/SQL procedure successfully completed.
+
+
+View created.
+
+
+View created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION DATEADD                                                   
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION DATEPART                                                  
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION DAY                                                       
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION FN_GETSESSIONID                                           
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION GETDATE                                                   
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION GETUTCDATE                                                
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION MONTH                                                     
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE SP_GATHER_TABLE_STATS                                    
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_ins_upd_hourly_sales                                  
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_ins_upd_merchlvl1_sales                               
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION sp_replace_org_id                                         
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE SP_TRUNCATE_TABLE                                        
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION YEAR                                                      
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_NLS_LOWER                                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_NLS_UPPER                                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_ParseDate                                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Type created.
+
+--- CREATING FUNCTION fn_integerListToTable                                     
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Type created.
+
+--- CREATING FUNCTION fn_nodesInHierarchy                                       
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_storesInHierarchy                                      
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_table_row_count                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION fn_table_stats_row_count                                  
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_conv_to_unicode                                       
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_fifo_detail                                           
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING procedure SP_FIFO_SUMMARY                                          
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION sp_get_sequence_value                                     
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_ins_upd_flash_sales                                   
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION sp_next_sequence_range_value                              
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION sp_next_sequence_value                                    
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_set_sequence_value                                    
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_tables_inmemory                                       
+
+PL/SQL procedure successfully completed.
+
+old  23: ALTER TABLESPACE &dbDataTableSpace. DEFAULT INMEMORY MEMCOMPRESS FOR QUERY HIGH;');
+new  23: ALTER TABLESPACE ucm_xtraining_24_101_DATA DEFAULT INMEMORY MEMCOMPRESS FOR QUERY HIGH;');
+old  27: ALTER TABLESPACE &dbDataTableSpace. DEFAULT NO INMEMORY;');
+new  27: ALTER TABLESPACE ucm_xtraining_24_101_DATA DEFAULT NO INMEMORY;');
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE sp_write_dbms_output_to_file                             
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION SP_EXPORT_DATABASE                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE SP_FLASH                                                 
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+--- CREATING FUNCTION SP_IMPORT_DATABASE                                        
+
+PL/SQL procedure successfully completed.
+
+
+Function created.
+
+
+Grant succeeded.
+
+--- CREATING PROCEDURE SP_REPORT                                                
+
+PL/SQL procedure successfully completed.
+
+
+Procedure created.
+
+
+Grant succeeded.
+
+
+Trigger created.
+
+
+1 row created.
+
+
+Commit complete.
+
+
+PL/SQL procedure successfully completed.
+

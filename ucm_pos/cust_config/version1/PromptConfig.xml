@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PromptSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PromptConfig.xsd" xmlns="http://micros.com/xstore/config/prompt">
+
+	<Prompt name="CUST_DISPLAY_IDLE_SCREEN" type="CustDisplay"
+	title="_cfdIdleText" textColorRef="--xstore-cfd-idle-fg-color" bgColorRef="--
+	xstore-cfd-idle-bg-color"
+	bgVideoRef="_videoCFDIdleScreenBackground"><IconGroup
+	background="_imageCFDIdleScreenBackground"/></Prompt>
+
+</PromptSet>

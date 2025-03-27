@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpChainSet xmlns="http://micros.com/xstore/config/opchain">
+	<OpChain name="MOBILE_START_SALE_LOGIN">
+		<Op class="dtv.pos.framework.security.op.PosLoginOp">
+			<Parameter name="OneStepAuthenticate" value="true" />
+			<Parameter name="LoginDescription" value="_menuTextStartSale" />
+		</Op>
+		<OpChainRoute chainKey="UPDATE_PROMPTS_ROLLBACK" />
+		<Op class="dtv.pos.systemcycle.access.SynchStateJournalOp" />
+		<OpChainRoute chainKey="MOBILE_START_SALE" chainType="START" />
+	</OpChain>
+	
+	<OpChain name="CREATE_CUSTOMER_FROM_SEARCH">
+    <OpChainRoute chainKey="CUSTOMER.REVIEW_INFORMATION_CONSENT" />
+    <Op class="dtv.pos.customer.CreateCustomerFromSearchOp" breakpoint="true" />
+  </OpChain>
+
+	<OpChain name="ADD_NEW_CUST_ASSOC" signal="TransactionModified">
+		<OpChainRoute chainKey="CUSTOMER.REVIEW_INFORMATION_CONSENT" />
+		<Op class="dtv.pos.customer.CreateCustomerFromSearchOp"
+			breakpoint="true">
+			<Parameter name="AddCustomerToTran" value="true" />
+		</Op>
+	</OpChain>
+</OpChainSet>

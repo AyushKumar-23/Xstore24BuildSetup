@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <beans profile="xstore">
+    <bean id="environmentHelper" class="dtv.pos.common.EnvironmentHelper" lazy-init="true">
+      <property name="updatesDirectory" value="../updates" />
+      <property name="environmentDirectory" value="../xenvironment" />
+      <property name="applyUpdatesAction" value="ready-for-updates" />
+      <property name="address" value="#{systemProperties['environment.host'] ?: 'localhost'}" />
+      <property name="port" value="9096" />
+      <property name="restPort" value="9098" />
+      <property name="enabled" value="false" />
+      <property name="updateGracePeriod" value="0" />
+      <property name="updateRequiredPeriod" value="0" />
+      <property name="messageClearTime" value="120" />
+    </bean>
+    
+  
+  </beans>
+  
+  
+</beans>

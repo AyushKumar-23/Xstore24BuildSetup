@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SysConfig xmlns="http://micros.com/xstore/config/settings">
+	<Setting name="Email---Receipt---From">${dtv.email.receipt.from}</Setting>
+	<Setting name="Location---OvertimeRuleType">WEEKLYOVER40</Setting>
+	<Setting name="SendSale---SendTaxType">DESTINATION</Setting>
+	<Setting name="CustomerFacingDisplay---TemporaryMessageDisplaySeconds">3</Setting>
+</SysConfig>

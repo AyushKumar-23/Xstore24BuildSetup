@@ -1,0 +1,24 @@
+
+User dropped.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+old  11:   execute immediate 'DROP TABLESPACE &dbDataTableSpace. INCLUDING CONTENTS AND DATAFILES';
+new  11:   execute immediate 'DROP TABLESPACE ucm_repqueue_24_101_DATA INCLUDING CONTENTS AND DATAFILES';
+old  13:                      lower('&dbDataTableSpace..dbf'),
+new  13:                      lower('ucm_repqueue_24_101_DATA.dbf'),
+old  20:      utl_file.fremove('EXT_DATA_FILES', '&dbDataTableSpace..dbf');
+new  20:      utl_file.fremove('EXT_DATA_FILES', 'ucm_repqueue_24_101_DATA.dbf');
+old  23:   execute immediate 'DROP TABLESPACE &dbIndexTableSpace. INCLUDING CONTENTS AND DATAFILES';
+new  23:   execute immediate 'DROP TABLESPACE ucm_repqueue_24_101_INDEX INCLUDING CONTENTS AND DATAFILES';
+old  25:                      lower('&dbIndexTableSpace..dbf'),
+new  25:                      lower('ucm_repqueue_24_101_INDEX.dbf'),
+old  32:      utl_file.fremove('EXT_DATA_FILES', '&dbIndexTableSpace..dbf');
+new  32:      utl_file.fremove('EXT_DATA_FILES', 'ucm_repqueue_24_101_INDEX.dbf');
+
+PL/SQL procedure successfully completed.
+

@@ -1,0 +1,28 @@
+
+Session altered.
+
+old  30:       TABLESPACE &dbIndexTableSpace.
+new  30:       TABLESPACE ucm_repqueue_24_101_INDEX
+old  32:       TABLESPACE &dbDataTableSpace.'
+new  32:       TABLESPACE ucm_repqueue_24_101_DATA'
+
+PL/SQL procedure successfully completed.
+
+old  31:     TABLESPACE &dbIndexTableSpace.
+new  31:     TABLESPACE ucm_repqueue_24_101_INDEX
+old  33:     TABLESPACE &dbDataTableSpace.'
+new  33:     TABLESPACE ucm_repqueue_24_101_DATA'
+
+PL/SQL procedure successfully completed.
+
+old  29:     TABLESPACE &dbIndexTableSpace.
+new  29:     TABLESPACE ucm_repqueue_24_101_INDEX
+old  31:     TABLESPACE &dbDataTableSpace.'
+new  31:     TABLESPACE ucm_repqueue_24_101_DATA'
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+SQL> 

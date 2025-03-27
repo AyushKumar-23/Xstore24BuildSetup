@@ -1,0 +1,705 @@
+:root {
+  --xstore-pie-chart-center-label-font-size: 24px;
+  --oj-core-divider-color: rgba(var(--oj-palette-neutral-rgb-190), 0.3);
+  --oj-collection-border-color: rgba(var(--oj-palette-neutral-rgb-190), 0.3);
+  --xstore-secondary-font-family: Georgia, "Oracle Sans", Arial Unicode MS, Arial, sans-serif;
+  --xstore-color-bar-url: url("images/color-bar.png");
+  --xstore-menu-bg-url: url("images/bgpattern_menu.png");
+  --xstore-menu-bg-rgb: var(--oj-palette-neutral-rgb-140);
+  --xstore-home-focusbar-bg-url: url("images/bgpattern_home.png");
+  --xstore-home-focusbar-bg-rgb: var(--oj-palette-neutral-rgb-40);
+  --xstore-status-bar-bg-rgb: var(--oj-palette-neutral-rgb-180);
+  --xstore-status-bar-logo: url("images/oracle_red_tag.png");
+  --xstore-reg-store-status-open-rgb: var(--oj-palette-success-rgb-70);
+  --xstore-reg-store-status-closed-rgb: var(--oj-palette-danger-rgb-70);
+  --xstore-datasource-online-rgb: var(--oj-palette-success-rgb-70);
+  --xstore-datasource-wan-offline-rgb: var(--oj-palette-warning-rgb-70);
+  --xstore-datasource-lan-offline-rgb: var(--oj-palette-danger-rgb-70);
+  --xstore-new-order-count-rgb: var(--oj-palette-warning-rgb-50);
+  --xstore-sale-list-bg-rgb: var(--oj-palette-neutral-rgb-10);
+  --xstore-sale-summary-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-sale-customer-area-bg-rgb: var(--oj-palette-neutral-rgb-160);
+  --xstore-tender-selection-bg-rgb: var(--oj-palette-neutral-rgb-170);
+  --xstore-tender-selection-bg-url: url("images/bgpattern_tender.png");
+  --xstore-text-color-discount: rgb(var(--oj-palette-danger-rgb-140));
+  --xstore-bg-pattern-opacity: 0.1;
+  --xstore-keypad-button-bg-rgb: var(--oj-palette-neutral-rgb-0);
+  --xstore-ask-xstore-button-bg-rgb: 199, 70, 52;
+  --xstore-ask-xstore-exit-bg-rgb: var(--oj-palette-neutral-rgb-70);
+  --xstore-ask-xstore-bg-rgb: var(--oj-palette-neutral-rgb-180);
+  --xstore-ask-xstore-notifications-bg-rgb: var(--oj-palette-neutral-rgb-160);
+  --xstore-ask-xstore-search-bg-rgb: var(--oj-palette-neutral-rgb-170);
+  --xstore-simple-title-header-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-search-form-bg-rgb: var(--oj-palette-neutral-rgb-20);
+  --xstore-multi-page-form-nav-area-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-multi-page-form-header-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-drawer-header-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-data-grid-header-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-badge-complete-bg-color: rgb(214, 229, 229);
+  --xstore-badge-complete-text-color: rgb(62, 104, 108);
+  --xstore-badge-cancel-bg-color: rgb(249, 221, 188);
+  --xstore-badge-cancel-text-color: rgb(143, 82, 10);
+  --xstore-badge-new-bg-color: rgb(234, 221, 244);
+  --xstore-badge-new-text-color: rgb(111, 87, 123);
+  --xstore-badge-void-bg-color: rgb(255, 217, 211);
+  --xstore-badge-void-text-color: rgb(179, 49, 31);
+
+  /* Context-based colors. Note that not all context colors are defined here, but only the ones that are in use. */
+  --xstore-context-return-bg-color: rgb(179, 49, 31);
+  --xstore-context-return-text-color: rgb(255, 217, 211);
+
+  --xstore-context-work-order-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-work-order-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-layaway-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-layaway-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-special-order-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-special-order-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-onhold-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-onhold-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-presale-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-presale-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-localorder-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-localorder-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-context-order-bg-color: rgb(var(--xstore-drawer-header-bg-rgb));
+  --xstore-context-order-text-color: var(--oj-core-text-color-primary);
+
+  /* Handheld specific colors */
+  --xstore-status-open-icon-rgb: var(--oj-palette-success-rgb-70);
+  --xstore-status-closed-icon-rgb: var(--oj-palette-danger-rgb-70);
+  --xstore-info-tab-bg-color: var(--oj-palette-neutral-rgb-0);
+  --xstore-home-focusbar-bg-color: var(--oj-palette-neutral-rgb-40);
+  --xstore-home-focusbar-bg-image-url: url("images/bgpattern_home.png");
+  --xstore-home-focusbar-bg-image-opacity: 0.1;
+  --xstore-info-tab-content-bg-color: var(--oj-palette-neutral-rgb-0);
+  --xstore-cust-acct-header-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-cust-acct-footer-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-search-form-footer-bg-color: var(--oj-palette-neutral-rgb-10);
+
+  --xstore-simple-activity-footer-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-multipage-form-footer-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-multipage-form-nav-bg-color: var(--oj-palette-neutral-rgb-0);
+  --xstore-simple-activity-drawer-header-bg-color: var(--oj-palette-neutral-rgb-30);
+  --xstore-multipage-form-header-bg-color: var(--oj-palette-neutral-rgb-30);
+  --xstore-simple-activity-header-bg-color: var(--oj-palette-neutral-rgb-30);
+  --xstore-multipage-form-navigation-bg-color: var(--oj-palette-neutral-rgb-20);
+  --xstore-sale-navigation-tabs-bg-color: var(--oj-palette-neutral-rgb-0);
+  --xstore-sale-content-header-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-tender-header-bg-color: var(--oj-palette-neutral-rgb-0);
+  --xstore-single-page-footer-bg-color: var(--oj-palette-neutral-rgb-10);
+  --xstore-table-line-item-menu-label-text-color: var(--oj-palette-neutral-rgb-190);
+  --xstore-sale-detailed-footer-bg-color: var(--oj-palette-neutral-rgb-30);
+  --xstore-context-tab-menu-bg-rgb: var(--oj-palette-neutral-rgb-0);
+
+  /* Xunit colors */
+  --xstore-run-xunit-button-bg-rgb: 0, 0, 0;
+  --xstore-run-xunit-bg-rgb: var(--oj-palette-neutral-rgb-180);
+  --xstore-xunit-progress-success-rgb: 44, 89, 103;
+  --xstore-xunit-progress-warn-rgb: 230, 172, 88;
+  --xstore-xunit-progress-fail-rgb: 199, 70, 52;
+
+  /* Colors for the badge that identifies a sale line item type. */
+  --xstore-badge-sale-bg-color: rgb(255, 0, 0);
+  --xstore-badge-sale-text-color: rgb(238, 130, 238);
+
+  --xstore-badge-return-bg-color: var(--oj-core-danger-secondary-1);
+  --xstore-badge-return-text-color: var(--oj-core-danger-secondary-contrast);
+
+  --xstore-badge-layaway-bg-color: rgb(219, 225, 245);
+  --xstore-badge-layaway-text-color: rgb(70, 76, 104);
+
+  --xstore-badge-send_sale-bg-color: rgb(218, 226, 239);
+  --xstore-badge-send_sale-text-color: rgb(92, 97, 105);
+
+  --xstore-badge-onhold-bg-color: rgb(233, 225, 202);
+  --xstore-badge-onhold-text-color: rgb(101, 97, 81);
+
+  --xstore-badge-localorder-bg-color: rgb(219, 225, 245);
+  --xstore-badge-localorder-text-color: rgb(88, 95, 128);
+
+  --xstore-badge-order-bg-color: rgb(232, 241, 240);
+  --xstore-badge-order-text-color: rgb(49, 83, 87);
+
+  --xstore-badge-presale-bg-color: rgb(208, 229, 237);
+  --xstore-badge-presale-text-color: rgb(54, 103, 125);
+
+  --xstore-badge-special_order-bg-color: rgb(234, 221, 244);
+  --xstore-badge-special_order-text-color: rgb(111, 87, 123);
+
+  --xstore-badge-work_order-bg-color: rgb(245, 222, 189);
+  --xstore-badge-work_order-text-color: rgb(141, 79, 46);
+
+  --xstore-badge-warranty-bg-color: rgb(208, 229, 238);
+  --xstore-badge-warranty-text-color: rgb(0, 104, 140);
+
+  --xstore-badge-tender-bg-color: rgb(207, 235, 179);
+  --xstore-badge-tender-text-color: rgb(67, 107, 29);
+
+  /* Till status badge colors (till accountability) */
+  --xstore-badge-status-till-attached-bg-color: rgb(207, 235, 179);
+  --xstore-badge-status-till-attached-text-color: rgb(67, 107, 29);
+
+  --xstore-badge-status-till-returned-bg-color: rgb(255, 217, 211);
+  --xstore-badge-status-till-returned-text-color: rgb(179, 49, 31);
+
+  --xstore-badge-status-till-issued-bg-color: rgb(207, 235, 179);
+  --xstore-badge-status-till-issued-text-color: rgb(67, 107, 29);
+
+  --xstore-badge-status-till-removed-bg-color: rgb(255, 217, 211);
+  --xstore-badge-status-till-removed-text-color: rgb(179, 49, 31);
+
+  /* Safe bag status badge colors */
+  --xstore-badge-status-safe-bag-undeclared-bg-color: rgb(172, 99, 12);
+  --xstore-badge-status-safe-bag-undeclared-text-color: var(--oj-badge-text-color);
+
+  --xstore-badge-status-safe-bag-counted-bg-color: rgb(208, 229, 238);
+  --xstore-badge-status-safe-bag-counted-text-color: rgb(0, 104, 140);
+
+  --xstore-badge-status-safe-bag-deposited-bg-color: rgb(34, 126, 158);
+  --xstore-badge-status-safe-bag-deposited-text-color: var(--oj-badge-text-color);
+
+  --xstore-badge-status-safe-bag-available-bg-color: rgb(80, 130, 35);
+  --xstore-badge-status-safe-bag-available-text-color: var(--oj-badge-text-color);
+
+  /* Safe bag acknowledged/ignored badge colors (these are not safe bag statuses) */
+  --xstore-badge-safe-bag-acknowledged-bg-color: rgb(207, 235, 179);
+  --xstore-badge-safe-bag-acknowledged-text-color: rgb(67, 107, 29);
+
+  --xstore-badge-safe-bag-ignored-bg-color: rgb(255, 217, 211);
+  --xstore-badge-safe-bag-ignored-text-color: rgb(179, 49, 31);
+
+  /* Transaction status badge colors */
+  --xstore-badge-status-transaction-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-transaction-new-text-color: var(--xstore-badge-new-text-color);
+
+  --xstore-badge-status-transaction-complete-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-transaction-complete-text-color: var(--xstore-badge-complete-text-color);
+
+  --xstore-badge-status-transaction-cancel-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-transaction-cancel-text-color: var(--xstore-badge-cancel-text-color);
+
+  --xstore-badge-status-transaction-cancel_orphaned-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-transaction-cancel_orphaned-text-color: var(--xstore-badge-cancel-text-color);
+
+  --xstore-badge-status-transaction-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-transaction-new-text-color: var(--xstore-badge-new-text-color);
+
+  --xstore-badge-status-transaction-resume-bg-color: rgb(203, 233, 214);
+  --xstore-badge-status-transaction-resume-text-color: rgb(63, 107, 75);
+
+  --xstore-badge-status-transaction-suspend-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-transaction-suspend-text-color: rgb(101, 97, 81);
+
+  --xstore-badge-status-transaction-void-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-transaction-void-text-color: var(--xstore-badge-void-text-color);
+
+  /* Home page info tab badge colors */
+  --xstore-badge-home-info-count-bg-color: var(--oj-core-neutral-1);
+  --xstore-badge-home-info-count-text-color: var(--oj-core-neutral-contrast);
+
+  /* Priority badge colors. */
+  --xstore-badge-priority-high-bg-color: var(--oj-core-danger-1);
+  --xstore-badge-priority-high-text-color: var(--oj-core-danger-contrast);
+
+  --xstore-badge-priority-medium-bg-color: var(--oj-core-info-1);
+  --xstore-badge-priority-medium-text-color: var(--oj-core-info-contrast);
+
+  --xstore-badge-priority-low-bg-color: var(--oj-badge-bg-color);
+  --xstore-badge-priority-low-text-color: var(--oj-badge-text-color);
+
+  /* Price modifier type badge colors. */
+  --xstore-badge-price-modifier-deal-bg-color: var(--oj-core-warning-secondary-1);
+  --xstore-badge-price-modifier-deal-text-color: var(--oj-core-warning-secondary-contrast);
+
+  --xstore-badge-price-modifier-entitlement-bg-color: var(--oj-core-success-secondary-1);
+  --xstore-badge-price-modifier-entitlement-text-color: var(--oj-core-success-secondary-contrast);
+
+  --xstore-badge-price-modifier-discount-bg-color: var(--oj-core-danger-secondary-1);
+  --xstore-badge-price-modifier-discount-text-color: var(--oj-core-danger-secondary-contrast);
+
+  --xstore-badge-price-modifier-default-bg-color: var(--oj-core-neutral-secondary-1);
+  --xstore-badge-price-modifier-default-text-color: var(--oj-core-neutral-secondary-contrast);
+
+  /* Status badge colors. */
+  --xstore-badge-status-neutral-bg-color: rgb(225, 225, 225);
+  --xstore-badge-status-neutral-text-color: rgb(96, 96, 96);
+  --xstore-badge-status-success-bg-color: rgb(228, 245, 211);
+  --xstore-badge-status-success-text-color: rgb(67, 107, 29);
+  --xstore-badge-status-information-bg-color: rgb(208, 229, 238);
+  --xstore-badge-status-information-text-color: rgb(0, 104, 140);
+  --xstore-badge-status-danger-bg-color: rgb(255, 217, 211);
+  --xstore-badge-status-danger-text-color: rgb(179, 49, 31);
+  --xstore-badge-status-warning-bg-color: rgb(252, 237, 220);
+  --xstore-badge-status-warning-text-color: rgb(143, 82, 10);
+  --xstore-badge-status-grey-bg-color: rgb(225, 225, 225);
+  --xstore-badge-status-grey-text-color: rgb(96, 96, 96);
+  --xstore-badge-status-rose-bg-color: rgb(246, 218, 225);
+  --xstore-badge-status-rose-text-color: rgb(134, 80, 92);
+  --xstore-badge-status-sienna-bg-color: rgb(245, 222, 189);
+  --xstore-badge-status-sienna-text-color: rgb(141, 79, 46);
+  --xstore-badge-status-beige-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-beige-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-pine-bg-color: rgb(203, 233, 214);
+  --xstore-badge-status-pine-text-color: rgb(63, 107, 75);
+  --xstore-badge-status-slate-bg-color: rgb(215, 229, 229);
+  --xstore-badge-status-slate-text-color: rgb(88, 99, 99);
+  --xstore-badge-status-fog-bg-color: rgb(212, 229, 235);
+  --xstore-badge-status-fog-text-color: rgb(68, 102, 114);
+  --xstore-badge-status-plum-bg-color: rgb(234, 221, 244);
+  --xstore-badge-status-plum-text-color: rgb(111, 87, 123);
+  --xstore-badge-status-teal-bg-color: rgb(214, 229, 229);
+  --xstore-badge-status-teal-text-color: rgb(62, 104, 108);
+  --xstore-wishlist-orderable-bg-color: rgb(207, 235, 179);
+  --xstore-wishlist-orderable-text-color: rgb(67, 107, 29);
+
+  /* Customer account status badge colors. */
+  --xstore-badge-status-customer-account-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-customer-account-new-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-customer-account-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-customer-account-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-customer-account-closed-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-customer-account-closed-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-customer-account-void-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-customer-account-void-text-color: var(--xstore-badge-status-danger-text-color);
+  --xstore-badge-status-customer-account-overdue-bg-color: var(--xstore-badge-status-rose-bg-color);
+  --xstore-badge-status-customer-account-overdue-text-color: var(--xstore-badge-status-rose-text-color);
+  --xstore-badge-status-customer-account-delinquent-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-customer-account-delinquent-text-color: var(--xstore-badge-status-danger-text-color);
+  --xstore-badge-status-customer-account-abandoned-bg-color: var(--xstore-badge-status-rose-bg-color);
+  --xstore-badge-status-customer-account-abandoned-text-color: var(--xstore-badge-status-rose-text-color);
+  --xstore-badge-status-customer-account-refundable-bg-color: var(--xstore-badge-status-sienna-bg-color);
+  --xstore-badge-status-customer-account-refundable-text-color: var(--xstore-badge-status-sienna-text-color);
+  --xstore-badge-status-customer-account-inactive-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-customer-account-inactive-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-customer-account-in_progress-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-customer-account-in_progress-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-customer-account-pending-bg-color: var(--xstore-badge-status-beige-bg-color);
+  --xstore-badge-status-customer-account-pending-text-color: var(--xstore-badge-status-beige-text-color);
+  --xstore-badge-status-customer-account-ready_to_pickup-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-customer-account-ready_to_pickup-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-customer-account-closed_escrow-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-customer-account-closed_escrow-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-customer-account-awaiting_payment-bg-color: var(--xstore-badge-status-fog-bg-color);
+  --xstore-badge-status-customer-account-awaiting_payment-text-color: var(--xstore-badge-status-fog-text-color);
+
+  /* Customer account detail status badge colors. */
+  --xstore-badge-status-customer-account-detail-created-bg-color: var(--xstore-badge-status-plum-bg-color);
+  --xstore-badge-status-customer-account-detail-created-text-color: var(--xstore-badge-status-plum-text-color);
+  --xstore-badge-status-customer-account-detail-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-customer-account-detail-new-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-customer-account-detail-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-customer-account-detail-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-customer-account-detail-close-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-customer-account-detail-close-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-customer-account-detail-pickup-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-customer-account-detail-pickup-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-customer-account-detail-ship-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-customer-account-detail-ship-text-color: var(--xstore-badge-status-pine-text-color);
+  --xstore-badge-status-customer-account-detail-cancel-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-customer-account-detail-cancel-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-customer-account-detail-void-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-customer-account-detail-void-text-color: var(--xstore-badge-status-danger-text-color);
+  --xstore-badge-status-customer-account-detail-received-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-customer-account-detail-received-text-color: var(--xstore-badge-status-pine-text-color);
+  --xstore-badge-status-customer-account-detail-in_progress-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-customer-account-detail-in_progress-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-customer-account-detail-pending-bg-color: var(--xstore-badge-status-beige-bg-color);
+  --xstore-badge-status-customer-account-detail-pending-text-color: var(--xstore-badge-status-beige-text-color);
+  --xstore-badge-status-customer-account-detail-ready_to_pickup-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-customer-account-detail-ready_to_pickup-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-customer-account-detail-cancel_escrow-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-customer-account-detail-cancel_escrow-text-color: var(--xstore-badge-cancel-text-color);
+
+  /* Inventory count status badge colors. */
+  --xstore-badge-status-inv-count-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-inv-count-new-text-color: var(--xstore-badge-new-text-color);
+
+  --xstore-badge-status-inv-count-initiated-bg-color: rgb(107, 116, 148);
+  --xstore-badge-status-inv-count-initiated-text-color: white;
+
+  --xstore-badge-status-inv-count-submitted-bg-color: rgb(80, 130, 35);
+  --xstore-badge-status-inv-count-submitted-text-color: white;
+
+  --xstore-badge-status-inv-count-complete-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-inv-count-complete-text-color: var(--xstore-badge-complete-text-color);
+
+  /* Inventory count sheet status badge colors. */
+  --xstore-badge-status-count-sheet-preliminary-bg-color: rgb(122, 115, 110);
+  --xstore-badge-status-count-sheet-preliminary-text-color: white;
+
+  --xstore-badge-status-count-sheet-printed-bg-color: rgb(88, 123, 134);
+  --xstore-badge-status-count-sheet-printed-text-color: white;
+
+  --xstore-badge-status-count-sheet-checkout-bg-color: var(--oj-badge-bg-color);
+  --xstore-badge-status-count-sheet-checkout-text-color: var(--oj-badge-text-color);
+
+  --xstore-badge-status-count-sheet-saved-bg-color: rgb(34, 126, 158);
+  --xstore-badge-status-count-sheet-saved-text-color: white;
+
+  --xstore-badge-status-count-sheet-submitted-bg-color: rgb(80, 130, 35);
+  --xstore-badge-status-count-sheet-submitted-text-color: white;
+
+  /* Order status badge colors. */
+  --xstore-badge-status-order-status-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-order-status-new-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-order-status-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-order-status-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-order-status-complete-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-order-status-complete-text-color: var(--xstore-badge-complete-text-color);
+  --xstore-badge-status-order-status-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-order-status-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-order-status-ready_to_ship-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-order-status-ready_to_ship-text-color: var(--xstore-badge-status-pine-text-color);
+  --xstore-badge-status-order-status-ready_for_pick_up-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-order-status-ready_for_pick_up-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-order-status-suspended-bg-color: var(--xstore-badge-status-rose-bg-color);
+  --xstore-badge-status-order-status-suspended-text-color: var(--xstore-badge-status-rose-text-color);
+  --xstore-badge-status-order-status-unfulfillable-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-order-status-unfulfillable-text-color: var(--xstore-badge-status-danger-text-color);
+  --xstore-badge-status-order-status-awaiting_driver_collection-bg-color: var(--xstore-badge-status-fog-bg-color);
+  --xstore-badge-status-order-status-awaiting_driver_collection-text-color: var(--xstore-badge-status-fog-text-color);
+
+  /* Order line status badge colors. */
+  --xstore-badge-status-order-line-status-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-order-line-status-new-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-order-line-status-polled-bg-color: var(--xstore-badge-status-plum-bg-color);
+  --xstore-badge-status-order-line-status-polled-text-color: var(--xstore-badge-status-plum-text-color);
+  --xstore-badge-status-order-line-status-accepted-bg-color: var(--xstore-badge-status-beige-bg-color);
+  --xstore-badge-status-order-line-status-accepted-text-color: var(--xstore-badge-status-beige-text-color);
+  --xstore-badge-status-order-line-status-reserved-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-order-line-status-reserved-text-color: var(--xstore-badge-status-pine-text-color);
+  --xstore-badge-status-order-line-status-fulfilled-bg-color: var(--xstore-badge-status-teal-bg-color);
+  --xstore-badge-status-order-line-status-fulfilled-text-color: var(--xstore-badge-status-teal-text-color);
+  --xstore-badge-status-order-line-status-rejected-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-order-line-status-rejected-text-color: var(--xstore-badge-status-danger-text-color);
+  --xstore-badge-status-order-line-status-in_transit-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-order-line-status-in_transit-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-order-line-status-in_transit_polled-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-order-line-status-in_transit_polled-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-order-line-status-received-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-order-line-status-received-text-color: var(--xstore-badge-status-pine-text-color);
+  --xstore-badge-status-order-line-status-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-order-line-status-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-order-line-status-unfulfillable-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-order-line-status-unfulfillable-text-color: var(--xstore-badge-status-danger-text-color);
+
+  /* Order Type badge colors */
+  --xstore-badge-order-type-standard_pickup-bg-color: rgb(132, 106, 146);
+  --xstore-badge-order-type-standard_pickup-text-color: var(--oj-badge-text-color);
+  --xstore-badge-order-type-delayed_pickup-bg-color: rgb(79, 125, 123);
+  --xstore-badge-order-type-delayed_pickup-text-color: var(--oj-badge-text-color);
+  --xstore-badge-order-type-standard_delivery-bg-color: rgb(34, 126, 158);
+  --xstore-badge-order-type-standard_delivery-text-color: var(--oj-badge-text-color);
+  --xstore-badge-order-type-sameday_delivery-bg-color: rgb(163, 100, 114);
+  --xstore-badge-order-type-sameday_delivery-text-color: var(--oj-badge-text-color);
+
+  /* Order Under Review color */
+  --xstore-badge-order-under-review-bg-color: rgb(122, 115, 110);
+  --xstore-badge-order-under-review-text-color: var(--oj-badge-text-color);
+
+  /* Order customer no show color */
+  --xstore-badge-order-customer-no-show-bg-color: rgb(199, 70, 52);
+  --xstore-badge-order-customer-no-show-text-color: var(--oj-badge-text-color);
+
+  /* Clocked in badge colors */
+  --xstore-badge-clocked-in-bg-color: rgb(80, 130, 35);
+  --xstore-badge-clocked-in-text-color: var(--oj-badge-text-color);
+
+  /* Till count group badge colors */
+  --xstore-badge-till-count-group-variance-bg-color: var(--oj-core-danger-1);
+  --xstore-badge-till-count-group-variance-text-color: var(--oj-core-danger-contrast);
+
+  --xstore-badge-till-count-group-balanced-bg-color: var(--oj-core-success-1);
+  --xstore-badge-till-count-group-balanced-text-color: var(--oj-core-success-contrast);
+
+  --xstore-badge-till-count-group-uncounted-bg-color: var(--oj-badge-bg-color);
+  --xstore-badge-till-count-group-uncounted-text-color: var(--oj-badge-text-color);
+
+  /* Loyalty badge colors  */
+  --xstore-badge-loyalty-gold-bg-color: rgb(255, 199, 0);
+  --xstore-badge-loyalty-gold-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-badge-loyalty-silver-bg-color: rgb(195, 209, 219);
+  --xstore-badge-loyalty-silver-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-badge-loyalty-bronze-bg-color: rgb(221, 194, 167);
+  --xstore-badge-loyalty-bronze-text-color: var(--oj-core-text-color-primary);
+
+  --xstore-badge-loyalty-normal-bg-color: rgb(0, 102, 204);
+  --xstore-badge-loyalty-normal-text-color: white;
+
+  --xstore-badge-loyalty-default-bg-color: rgb(0, 102, 204);
+  --xstore-badge-loyalty-default-text-color: white;
+
+  --xstore-badge-loyalty-elite-bg-color: rgb(0, 102, 204);
+  --xstore-badge-loyalty-elite-text-color: white;
+
+  --xstore-badge-loyalty-353-bg-color: var(--xstore-badge-loyalty-silver-bg-color);
+  --xstore-badge-loyalty-353-text-color: var(--xstore-badge-loyalty-silver-text-color);
+
+  /* Offer Applied badge colors */
+  --xstore-badge-offer-applied-bg-color: var(--oj-core-success-secondary-1);
+  --xstore-badge-offer-applied-text-color: var(--oj-core-success-secondary-contrast);
+  --xstore-badge-offer-voided-bg-color: var(--oj-core-danger-secondary-1);
+  --xstore-badge-offer-voided-text-color: var(--oj-core-danger-secondary-contrast);
+
+  /* Offline POS Transaction status badge colors */
+  --xstore-badge-status-offline-transaction-complete-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-offline-transaction-complete-text-color: var(--xstore-badge-complete-text-color);
+  --xstore-badge-status-offline-transaction-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-offline-transaction-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+
+  /* Fiscal Printer status badge colors */
+  --xstore-badge-status-fiscal-printer-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-fiscal-printer-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-fiscal-printer-closed-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-fiscal-printer-closed-text-color: var(--xstore-badge-status-grey-text-color);
+
+  /* Temporary Store Request status badge colors */
+  --xstore-badge-status-temporary-store-request-submitted-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-temporary-store-request-submitted-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-temporary-store-request-approved-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-temporary-store-request-approved-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-temporary-store-request-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-temporary-store-request-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-temporary-store-request-rejected-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-temporary-store-request-rejected-text-color: var(--xstore-badge-status-danger-text-color);
+
+  /* Datasource status badge colors */
+  --xstore-badge-status-datasource-status-online-bg-color: rgba(207, 235, 179, 1);
+  --xstore-badge-status-datasource-status-online-text-color: rgba(67, 107, 29, 1);
+  --xstore-badge-status-datasource-status-offline-bg-color: rgba(255, 217, 211, 1);
+  --xstore-badge-status-datasource-status-offline-text-color: rgba(179, 49, 31, 1);
+  --xstore-badge-status-datasource-status-refreshing-bg-color: rgba(208, 229, 238, 1);
+  --xstore-badge-status-datasource-status-refreshing-text-color: rgba(0, 104, 140, 1);
+  --xstore-badge-status-datasource-status-disabled-bg-color: rgba(228, 225, 221, 1);
+  --xstore-badge-status-datasource-status-disabled-text-color: rgba(102, 95, 91, 1);
+
+  --xstore-badge-status-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-in_process-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-in_process-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-in_progress-bg-color: var(--xstore-badge-status-slate-bg-color);
+  --xstore-badge-status-in_progress-text-color: var(--xstore-badge-status-slate-text-color);
+  --xstore-badge-status-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-closed-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-closed-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-submitted-bg-color: var(--xstore-badge-status-pine-bg-color);
+  --xstore-badge-status-submitted-text-color: var(--xstore-badge-status-pine-text-color);
+
+  /* Employee Status badge colors */
+  --xstore-badge-status-employee-status-a-bg-color: rgb(207, 235, 179);
+  --xstore-badge-status-employee-status-a-text-color: rgb(67, 107, 29);
+  --xstore-badge-status-employee-status-i-bg-color: rgb(228, 225, 221);
+  --xstore-badge-status-employee-status-i-text-color: rgb(102, 95, 91);
+  --xstore-badge-status-employee-status-t-bg-color: rgb(249, 221, 188);
+  --xstore-badge-status-employee-status-t-text-color: rgb(143, 82, 10);
+
+  /* Hardware Device status badge colors */
+  --xstore-badge-status-hardware-device-enabled-bg-color: rgba(207, 235, 179, 1);
+  --xstore-badge-status-hardware-device-enabled-text-color: rgba(67, 107, 29, 1);
+  --xstore-badge-status-hardware-device-disabled-bg-color: rgba(255, 217, 211, 1);
+  --xstore-badge-status-hardware-device-disabled-text-color: rgba(179, 49, 31, 1);
+
+  /* Mobile Device Access status badge colors */
+  --xstore-badge-status-mobile-device-access-enabled-bg-color: rgba(207, 235, 179, 1);
+  --xstore-badge-status-mobile-device-access-enabled-text-color: rgba(67, 107, 29, 1);
+  --xstore-badge-status-mobile-device-access-blocked-bg-color: rgba(255, 217, 211, 1);
+  --xstore-badge-status-mobile-device-access-blocked-text-color: rgba(179, 49, 31, 1);
+  --xstore-badge-status-mobile-device-access-pending_approval-bg-color: rgba(233, 225, 202, 1);
+  --xstore-badge-status-mobile-device-access-pending_approval-text-color: rgba(101, 97, 81, 1);
+  --xstore-badge-status-mobile-device-access-quick_config-bg-color: rgba(228, 225, 221, 1);
+  --xstore-badge-status-mobile-device-access-quick_config-text-color: rgba(102, 95, 91, 1);
+
+  /* IP Cash Drawer status badge colors */
+  --xstore-badge-status-ip-cash-drawer-new-bg-color: rgba(234, 221, 244, 1);
+  --xstore-badge-status-ip-cash-drawer-new-text-color: rgba(111, 87, 123, 1);
+  --xstore-badge-status-ip-cash-drawer-active-bg-color: rgba(207, 235, 179, 1);
+  --xstore-badge-status-ip-cash-drawer-active-text-color: rgba(67, 107, 29, 1);
+  --xstore-badge-status-ip-cash-drawer-inactive-bg-color: rgba(228, 225, 221, 1);
+  --xstore-badge-status-ip-cash-drawer-inactive-text-color: rgba(102, 95, 91, 1);
+  --xstore-badge-status-ip-cash-drawer-reset-bg-color: rgba(249, 221, 188, 1);
+  --xstore-badge-status-ip-cash-drawer-reset-text-color: rgba(143, 82, 10, 1);
+  --xstore-badge-status-ip-cash-drawer-configured-bg-color: rgba(215, 229, 229, 1);
+  --xstore-badge-status-ip-cash-drawer-configured-text-color: rgba(88, 99, 99, 1);
+
+  /* primary indicator badge color */
+  --xstore-badge-primary-bg-color: var(--oj-core-info-1);
+  --xstore-badge-primary-text-color: var(--oj-core-info-contrast);
+
+  /* Sales goal graph colors */
+  --xstore-sales-goal-chart-remaining-color: rgb(227, 249, 210);
+  --xstore-sales-goal-chart-complete-color: rgb(82, 131, 37);
+  --xstore-sales-goal-expired-chart-remaining-color: rgb(255, 217, 211);
+  --xstore-sales-goal-expired-chart-complete-color: rgb(179, 49, 31);
+
+  /* Employee history graph colors */
+  --xstore-employee-sales-chart-returns-color: rgb(199, 70, 52);
+  --xstore-employee-sales-chart-sales-color: rgb(80, 130, 35);
+
+  /* Customer history graph colors */
+  --xstore-customer-sales-chart-returns-color: rgb(199, 70, 52);
+  --xstore-customer-sales-chart-sales-color: rgb(80, 130, 35);
+
+  /* Customer activity colors */
+  --xstore-customer-activity-event-bg-color: rgb(76, 130, 92);
+  --xstore-customer-activity-task-bg-color: rgb(146, 88, 101);
+  --xstore-customer-activity-engagement-bg-color: rgb(67, 124, 148);
+  --xstore-customer-activity-layaway-bg-color: rgb(132, 106, 146);
+  --xstore-customer-activity-order-bg-color: rgb(79, 125, 123);
+  --xstore-customer-activity-return-bg-color: rgb(173, 67, 63);
+  --xstore-customer-activity-sale-bg-color: rgb(67, 124, 148);
+  --xstore-customer-activity-send_sale-bg-color: rgb(67, 124, 148);
+  --xstore-customer-activity-special_order-bg-color: rgb(132, 106, 146);
+  --xstore-customer-activity-work_order-bg-color: rgb(155, 87, 52);
+  --xstore-customer-activity-presale-bg-color: rgb(132, 106, 146);
+  --xstore-customer-activity-onhold-bg-color: rgb(132, 106, 146);
+  --xstore-customer-activity-localorder-bg-color: rgb(132, 106, 146);
+
+  /* Xstore Customer Facing Display colors */
+  --xstore-cfd-idle-bg-color: rgb(var(--oj-palette-neutral-rgb-190));
+  --xstore-cfd-idle-fg-color: rgb(var(--oj-palette-neutral-rgb-0));
+  --xstore-cfd-training-bg-color: rgb(var(--oj-palette-neutral-rgb-190));
+  --xstore-cfd-training-fg-color: rgb(var(--oj-palette-neutral-rgb-0));
+  --xstore-cfd-msg-bg-color: rgb(var(--oj-palette-neutral-rgb-190));
+  --xstore-cfd-msg-fg-color: rgb(var(--oj-palette-neutral-rgb-0));
+
+  --xstore-cfd-sale-customer-area-bg-rgb: var(--oj-palette-neutral-rgb-160);
+  --xstore-cfd-sale-list-bg-rgb: var(--oj-palette-neutral-rgb-10);
+  --xstore-cfd-sale-summary-bg-rgb: var(--oj-palette-neutral-rgb-30);
+  --xstore-cfd-sale-qrcode-bg-rgb: var(--oj-palette-neutral-rgb-30);
+
+  /* Order Tab colors */
+  --xstore-order-tab-chart-default-bg-color: rgb(121, 177, 198);
+  --xstore-order-tab-chart-sameday-bg-color: rgb(163, 100, 114);
+  --xstore-order-tab-chart-delivery-bg-color: rgb(67, 124, 148);
+  --xstore-order-tab-chart-pickup-bg-color: rgb(111, 87, 123);
+
+  --xstore-order-tab-chart-none-bg-color: rgba(22, 21, 19, 0.04);
+  --xstore-order-tab-chart-open-bg-color: rgb(0, 104, 140);
+  --xstore-order-tab-chart-ready_for_pick_up-bg-color: rgb(67, 107, 29);
+  --xstore-order-tab-chart-ready_to_ship-bg-color: rgb(63, 107, 75);
+  --xstore-order-tab-chart-awaiting_driver_collection-bg-color: rgb(68, 102, 114);
+
+  /* item sales history graph colors */
+  --xstore-item-sales-chart-returns-color: rgb(199, 70, 52);
+  --xstore-item-sales-chart-sales-color: rgb(80, 130, 35);
+
+  --xstore-sales-trend-chart-sales-color: rgb(34, 126, 158);
+  --xstore-price-trend-chart-price-color: rgb(34, 126, 158);
+
+  /*--xstore-training-mode-banner-bg-color: rgb(var(--oj-palette-danger-rgb-120));
+  --xstore-training-mode-banner-text-color: rgb(var(--oj-palette-neutral-rgb-0));
+  --xstore-training-mode-status-bar-text-color: rgb(238, 115, 98);*/
+  
+  --xstore-training-mode-banner-bg-color: rgb(147,73,59);
+    --xstore-training-mode-banner-text-color:rgb(46,170,126);
+    --xstore-training-mode-status-bar-text-color: rgb(220,202,150);
+
+  /* Italy RT Server */
+  --xstore-badge-status-rtserver-online-bg-color: var(--xstore-badge-status-success-bg-color);
+  --xstore-badge-status-rtserver-online-text-color: var(--xstore-badge-status-success-text-color);
+  --xstore-badge-status-rtserver-offline-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-rtserver-offline-text-color: var(--xstore-badge-status-danger-text-color);
+
+  /* Germany TSE status badge colors */
+  --xstore-badge-status-tse-health-info-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-tse-health-info-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-tse-health-warning-bg-color: var(--xstore-badge-status-warning-bg-color);
+  --xstore-badge-status-tse-health-warning-text-color: var(--xstore-badge-status-warning-text-color);
+  --xstore-badge-status-tse-health-error-bg-color: var(--xstore-badge-status-danger-bg-color);
+  --xstore-badge-status-tse-health-error-text-color: var(--xstore-badge-status-danger-text-color);
+
+  --xstore-badge-status-tse-session-open-bg-color: var(--xstore-badge-status-information-bg-color);
+  --xstore-badge-status-tse-session-open-text-color: var(--xstore-badge-status-information-text-color);
+  --xstore-badge-status-tse-session-closed-bg-color: var(--xstore-badge-status-grey-bg-color);
+  --xstore-badge-status-tse-session-closed-text-color: var(--xstore-badge-status-grey-text-color);
+  --xstore-badge-status-tse-session-unknown-bg-color: var(--xstore-badge-status-warning-bg-color);
+  --xstore-badge-status-tse-session-unknown-text-color: var(--xstore-badge-status-warning-text-color);
+
+  /* Airside price calculation mode badge colors */
+  --xstore-badge-airside-price-calc-mode-tax_free-bg-color: var(--oj-core-info-1);
+  --xstore-badge-airside-price-calc-mode-tax_free-text-color: var(--oj-core-info-contrast);
+  --xstore-badge-airside-price-calc-mode-tax_normal-bg-color: var(--oj-core-info-1);
+  --xstore-badge-airside-price-calc-mode-tax_normal-text-color: var(--oj-core-info-contrast);
+  --xstore-badge-airside-price-calc-mode-price_special-bg-color: var(--oj-core-info-1);
+  --xstore-badge-airside-price-calc-mode-price_special-text-color: var(--oj-core-info-contrast);
+  --xstore-badge-airside-price-calc-mode-airport_tax_free-bg-color: var(--oj-core-info-1);
+  --xstore-badge-airside-price-calc-mode-airport_tax_free-text-color: var(--oj-core-info-contrast);
+  --xstore-badge-airside-price-calc-mode-price_special_exempt-bg-color: var(--oj-core-info-1);
+  --xstore-badge-airside-price-calc-mode-price_special_exempt-text-color: var(--oj-core-info-contrast);
+
+  --xstore-status-gauge-time-off-color: var(--oj-core-success-1);
+  --xstore-status-gauge-customer-profile-color: var(--oj-core-text-color-primary);
+
+  /* Brazil NFE status badge colors */
+  --xstore-badge-status-nfe-assign-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-nfe-assign-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-nfe-new-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-nfe-new-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-nfe-open-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-nfe-open-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-nfe-submitted-bg-color: var(--xstore-badge-new-bg-color);
+  --xstore-badge-status-nfe-submitted-text-color: var(--xstore-badge-new-text-color);
+  --xstore-badge-status-nfe-sent-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-nfe-sent-text-color: var(--xstore-badge-complete-text-color);
+  --xstore-badge-status-nfe-error-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-nfe-error-text-color: var(--xstore-badge-void-text-color);
+  --xstore-badge-status-nfe-rejected-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-nfe-rejected-text-color: var(--xstore-badge-void-text-color);
+  --xstore-badge-status-nfe-denied-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-nfe-denied-text-color: var(--xstore-badge-void-text-color);
+  --xstore-badge-status-nfe-approved-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-nfe-approved-text-color: var(--xstore-badge-complete-text-color);
+  --xstore-badge-status-nfe-conting-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-nfe-conting-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-nfe-conting_cancel-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-nfe-conting_cancel-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-nfe-cancelled-bg-color: var(--xstore-badge-cancel-bg-color);
+  --xstore-badge-status-nfe-cancelled-text-color: var(--xstore-badge-cancel-text-color);
+  --xstore-badge-status-nfe-skip_request-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-nfe-skip_request-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-nfe-skipping-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-nfe-skipping-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-nfe-skipped-bg-color: var(--xstore-badge-complete-bg-color);
+  --xstore-badge-status-nfe-skipped-text-color: var(--xstore-badge-complete-text-color);
+  --xstore-badge-status-nfe-skip_failed-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-nfe-skip_failed-text-color: var(--xstore-badge-void-text-color);
+  --xstore-badge-status-nfe-cancel_request-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-nfe-cancel_request-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-nfe-cancelling-bg-color: rgb(233, 225, 202);
+  --xstore-badge-status-nfe-cancelling-text-color: rgb(101, 97, 81);
+  --xstore-badge-status-nfe-cancel_failed-bg-color: var(--xstore-badge-void-bg-color);
+  --xstore-badge-status-nfe-cancel_failed-text-color: var(--xstore-badge-void-text-color);
+
+  /* Gift Registry status badge colors */
+  --xstore-badge-registry-fulfilled-bg-color: var(--oj-core-success-1);
+  --xstore-badge-registry-fulfilled-text-color: var(--oj-core-success-contrast);
+  --xstore-badge-registry-unfulfilled-bg-color: var(--oj-badge-bg-color);
+  --xstore-badge-registry-unfulfilled-text-color: var(--oj-badge-text-color);
+}
+
+.xstore-toast-notifications {
+  /* --oj-core-danger-secondary-3: rgb(var(--oj-palette-danger-rgb-160));
+  --oj-core-success-secondary-3: rgb(var(--oj-palette-success-rgb-160));
+  --oj-core-warning-secondary-3: rgb(var(--oj-palette-warning-rgb-160));
+  --oj-core-info-secondary-3: rgb(var(--oj-palette-info-rgb-160));
+  --oj-core-danger-secondary-contrast: rgb(var(--oj-palette-danger-rgb-40));
+  --oj-core-info-secondary-contrast: rgb(var(--oj-palette-info-rgb-40));
+  --oj-core-warning-secondary-contrast: rgb(var(--oj-palette-warning-rgb-40));
+  --oj-core-success-secondary-contrast: rgb(var(--oj-palette-success-rgb-40)); */
+  --oj-core-danger-secondary-3: rgb(var(--oj-palette-neutral-rgb-170));
+  --oj-core-success-secondary-3: rgb(var(--oj-palette-neutral-rgb-170));
+  --oj-core-warning-secondary-3: rgb(var(--oj-palette-neutral-rgb-170));
+  --oj-core-info-secondary-3: rgb(var(--oj-palette-neutral-rgb-170));
+  --oj-core-danger-secondary-contrast: var(--oj-core-text-color-primary);
+  --oj-core-info-secondary-contrast: var(--oj-core-text-color-primary);
+  --oj-core-warning-secondary-contrast: var(--oj-core-text-color-primary);
+  --oj-core-success-secondary-contrast: var(--oj-core-text-color-primary);
+}

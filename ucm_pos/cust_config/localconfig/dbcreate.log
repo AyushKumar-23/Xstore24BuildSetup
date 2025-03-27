@@ -1,0 +1,64 @@
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING POSUSERS role ---                                                  
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING DBAUSERS role ---                                                  
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING XSTORE ---                                                         
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING schema owner ucm_repqueue_24_101 ---                               
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING application owner ucm_repqueue_24_101 ---                          
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--- CREATING backup/restore user dbauser ---                                    
+
+PL/SQL procedure successfully completed.
+
+DECLARE
+*
+ERROR at line 1:
+ORA-01741: illegal zero-length identifier 
+ORA-06512: at line 9 
+
+
+--- Creating GRANTs for dbauser ---                                             
+
+PL/SQL procedure successfully completed.
+
+DECLARE
+*
+ERROR at line 1:
+ORA-01917: user or role 'DBAUSER' does not exist 
+ORA-06512: at line 7 
+
+
+SQL> 
